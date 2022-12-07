@@ -18,6 +18,7 @@ import { BlogsModule } from './blogs/blogs.module';
       password: '9355456622ba31e8eedb88c354bed24d4fda0fb166e67f2f5644c0de82e34ddf',
       database: 'd5207t21rkqj9o',
       uri: process.env.DATABASE_URL,
+      native: true,
       dialectOptions: {
         ssl: true,
         rejectUnauthorized: false
