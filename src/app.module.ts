@@ -19,7 +19,8 @@ import { BlogsModule } from './blogs/blogs.module';
       native: true,
       ssl: true, 
       dialectOptions: {
-        ssl: true
+        ssl: true,
+        rejectUnauthorized: false
       },
       models: [BlogsModel],
       autoLoadModels: true,
