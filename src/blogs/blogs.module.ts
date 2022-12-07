@@ -7,7 +7,7 @@ import BlogsService from './blogs.service';
 
 
 @Module({
-  // imports: [SequelizeModule.forFeature([BlogsModel])],
+  imports: [SequelizeModule.forFeature([BlogsModel])],
   controllers: [BlogsController],
   providers: [BlogsService],
 })
