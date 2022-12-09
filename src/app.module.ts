@@ -15,7 +15,7 @@ import { BlogsModule } from './blogs/blogs.module';
       password: process.env.PASSWORD,
       database: process.env.DB_NAME,
       // uri: process.env.DATABASE_URL,
-      native: true,
+      // native: true,
       dialectOptions: {
         ssl: true,
         require: true,
