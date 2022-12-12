@@ -9,7 +9,7 @@ import { BlogsModule } from './blogs/blogs.module';
   imports: [
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      host: process.env.DB_HOST,
+      host: process.env.DB_HOST ,
       port: parseInt(process.env.DB_PORT),
       username: process.env.DB_USER,
       password: process.env.PASSWORD,

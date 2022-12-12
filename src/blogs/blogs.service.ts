@@ -17,7 +17,10 @@ export default class BlogsService {
     }
 
     async getOne(id: string): Promise<BlogsModel> {
-        return await this.model.findOne({ where: {id}});
+        const blog = await this.model.findOne<BlogsModel>({ where: {id}})
+        .catch(error => console.log(error));
+        console.log(blog)
+        return blog as BlogsModel;
     }
 
     async create(blog: BlogsDTO): Promise<BlogsModel> {
