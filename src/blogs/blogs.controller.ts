@@ -16,7 +16,7 @@ export default class BlogsController {
     @Get('/:id')
     getOneBlog(@Param() id): Promise<BlogsModel> {
         console.log(id)
-        return this.ctx.getOne(id);
+        return this.ctx.getOne(id.id);
     }
 
     @Post()
