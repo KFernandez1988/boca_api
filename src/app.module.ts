@@ -26,12 +26,12 @@ import { PassportModule } from '@nestjs/passport';
       database: process.env.DB_NAME?  process.env.DB_NAME : "Boca",
       uri: process.env.DATABASE_URL? process.env.DATABASE_URL : '' ,
       // native: true,
-    //   dialectOptions: {
-    //     ssl: process.env.DB_HOST === 'localhost'? false : {
-    //     require:  true,
-    //     rejectUnauthorized: false
-    // }
-    //   },
+      dialectOptions: {
+        ssl: process.env.DB_HOST === 'localhost'? false : {
+        require:  true,
+        rejectUnauthorized: false
+    }
+      },
       models: [BlogsModel, UserModel],
       autoLoadModels: true,
       synchronize: true,
