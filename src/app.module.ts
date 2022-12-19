@@ -13,6 +13,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { UsersService } from './users/users.service';
 import { JwtStrategy } from './auth/jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
+import { CommentModel } from './comments/models/comments.model';
 
 
 @Module({
@@ -32,9 +33,10 @@ import { PassportModule } from '@nestjs/passport';
         rejectUnauthorized: false
     }
       },
-      models: [BlogsModel, UserModel],
+      models: [BlogsModel, UserModel, CommentModel],
       autoLoadModels: true,
       synchronize: true,
+      repositoryMode: true
     }),
     PassportModule,
     JwtModule.register({

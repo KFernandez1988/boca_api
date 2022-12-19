@@ -1,4 +1,6 @@
-import { Column, DataType, Model, PrimaryKey, Table } from 'sequelize-typescript';
+import { Column, DataType, Model, PrimaryKey, Table, HasMany } from 'sequelize-typescript';
+import { CommentModel } from 'src/comments/models/comments.model';
+
 
 @Table
 export class BlogsModel extends Model {
@@ -10,10 +12,7 @@ export class BlogsModel extends Model {
 })
   id: string;
 
-  @Column({
-    type: DataType.UUID,
-    defaultValue: DataType.UUIDV4
-})
+  @Column
   userId: string;
 
   @Column

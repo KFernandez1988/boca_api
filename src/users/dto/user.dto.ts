@@ -3,5 +3,5 @@ export class UserModelDTO {
     username: string;
     email: string;
     password: string;
-
+    pro: boolean | string;
 }

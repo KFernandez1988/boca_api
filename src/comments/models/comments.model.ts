@@ -1,19 +1,25 @@
+import { InjectModel } from "@nestjs/sequelize";
 import { DataTypes } from "sequelize";
-import {Table, Column, Model, PrimaryKey} from "sequelize-typescript";
+import {Table, Column, Model, PrimaryKey, HasOne} from "sequelize-typescript";
 
 
 @Table
 export class  CommentModel extends Model {
+ 
+  @PrimaryKey
+  @Column({
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+  })
+  id: string
 
-    
-    @Column({
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-})
-@PrimaryKey
-id: string;
+  @Column
+  blogId:string
 
-@Column
-commnet: string;
 
+  @Column
+  userId:string
+
+  @Column
+  comment:string
 }

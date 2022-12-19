@@ -1,4 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import { Headers, Query } from "@nestjs/common/decorators";
 import BlogsDTO from "./blogDTOs";
 import { BlogsModel } from "./blogs.model";
 import BlogsService from "./blogs.service";
@@ -20,8 +21,10 @@ export default class BlogsController {
     }
 
     @Post()
-    createNewBlog(@Body() blog: BlogsDTO): Promise<BlogsModel> {
-        return this.ctx.create(blog)
+    createNewBlog(@Body() blog: BlogsDTO, @Query() token: any): Promise<BlogsModel> {
+        console.log(token.token)
+
+        return this.ctx.create(blog, token.token)
     }
 
     @Put('/:id')

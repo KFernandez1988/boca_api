@@ -22,6 +22,7 @@ export class UsersService {
       email: user.email,
       username: user.username,
       password: user.password,
+      pro: user.pro,
     });
   }
 

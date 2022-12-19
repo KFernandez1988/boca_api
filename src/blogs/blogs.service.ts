@@ -1,5 +1,8 @@
 import { HttpStatus, Injectable } from "@nestjs/common";
+import { JwtService } from "@nestjs/jwt";
 import { InjectModel } from "@nestjs/sequelize";
+import { CommentModel } from "src/comments/models/comments.model";
+import { UserModel } from "src/users/models/users.model";
 import BlogsDTO from "./blogDTOs";
 import { BlogsModel } from "./blogs.model";
 
@@ -9,7 +12,8 @@ export default class BlogsService {
     
     constructor(
         @InjectModel(BlogsModel) 
-        private model: typeof BlogsModel
+        private model: typeof BlogsModel,
+        private jwtServ: JwtService
     ){ console.log(this.model)}
 
     async getAll(): Promise<BlogsModel[]> {
@@ -28,9 +32,16 @@ export default class BlogsService {
         
     }
 
-    async create(blog: BlogsDTO): Promise<BlogsModel> {
+    async create(blog: BlogsDTO, token: string): Promise<BlogsModel> {
+
+          const { id } = this.jwtServ.verify(token,  {
+            secret: "testing",
+          });
+
+          console.log("id is in blog", id)
 
            const model = await this.model.create({
+            userId: id,
             title: blog.title,
             blog: blog.blog
            });

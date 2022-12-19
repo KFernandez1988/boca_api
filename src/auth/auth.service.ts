@@ -24,6 +24,12 @@ export class AuthService {
             
           cred.password = hash
 
+          if(cred.pro === "yes") {
+            cred.pro = true;
+          } else {
+            cred.pro = false;
+          }
+
       console.log("cred in service after hash", cred)
       const newUser = await this.serv.create(cred)
 

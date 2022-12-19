@@ -4,7 +4,7 @@ import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
 
 @Table
 export class UserModel extends Model {
-    
+    @PrimaryKey
     @Column({
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
@@ -23,7 +23,7 @@ export class UserModel extends Model {
             isEmail: {
                 msg: "please enter valid email"
             },
-            len: [5, 20],
+            len: [2, 50],
         }
     })
     email: string
@@ -33,5 +33,7 @@ export class UserModel extends Model {
     })
     password: string
 
+    @Column
+    pro: boolean;
 
 }
